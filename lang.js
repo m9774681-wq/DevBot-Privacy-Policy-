@@ -5,7 +5,11 @@
 
         document.querySelectorAll("[data-pt]").forEach(el => {
             const value = el.getAttribute("data-" + lang);
-            if (value) el.innerText = value;
+
+            // 🔥 NUNCA apaga conteúdo se não existir tradução
+            if (value && value.trim() !== "") {
+                el.innerText = value;
+            }
         });
     }
 
