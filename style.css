@@ -1,39 +1,10 @@
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #0b0f19;
-    color: white;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-}
-
-.card {
-    max-width: 700px;
-    background: #11182a;
-    padding: 30px;
-    border-radius: 15px;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 15px;
-    background: #5865F2;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
 .lang-switch {
     position: fixed;
     top: 15px;
     right: 15px;
     display: flex;
     gap: 8px;
+    z-index: 9999;
 }
 
 .lang-switch button {
@@ -43,4 +14,11 @@ body {
     padding: 6px 10px;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.lang-switch button:hover {
+    background: #4752c4;
+    transform: scale(1.05);
 }
