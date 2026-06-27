@@ -8,44 +8,4 @@
 </head>
 <body>
 
-<!-- 🔵 BOTÃO IDIOMA -->
-<div class="lang-switch">
-    <button onclick="setLang('pt')">PT 🇧🇷</button>
-    <button onclick="setLang('en')">EN 🇺🇸</button>
-</div>
-
-<div class="container">
-
-    <div class="card">
-
-        <div class="logo">🤖 ƬΗΣЦƧBӨƬ</div>
-
-        <div class="status">🟢 Online • Stable • 24/7</div>
-
-        <!-- TEXTOS EM IDIOMAS -->
-        <p class="subtitle" data-pt="Bot avançado de Discord com sistemas de moderação, economia e tickets."
-                           data-en="Advanced Discord bot with moderation, economy and ticket systems.">
-        </p>
-
-        <div class="buttons">
-            <a class="btn" href="privacy.html">🔒 Privacy Policy</a>
-            <a class="btn" href="terms.html">📜 Terms of Service</a>
-        </div>
-
-    </div>
-
-</div>
-
-<script>
-function setLang(lang) {
-    document.querySelectorAll('[data-pt]').forEach(el => {
-        el.innerText = el.getAttribute('data-' + lang);
-    });
-}
-
-// idioma padrão
-setLang('pt');
-</script>
-
-</body>
-</html>
+<script src="lang.js"></script>
