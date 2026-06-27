@@ -1,3 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #1a1f3a, #0b0f19);
+    color: white;
+    min-height: 100vh;
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* CARD PRINCIPAL (GLASSMORPHISM) */
+.card {
+    width: 100%;
+    max-width: 720px;
+    background: rgba(17, 24, 42, 0.75);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 0 40px rgba(88,101,242,0.25);
+}
+
+/* TITULOS */
+h1 {
+    font-size: 32px;
+    color: #5865F2;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+/* TEXTO */
+p {
+    color: #c7c7c7;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-left: 20px;
+    color: #c7c7c7;
+    line-height: 1.8;
+}
+
+/* BOTÕES */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: #5865F2;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #4752c4;
+    transform: translateY(-2px);
+}
+
+/* LOGO */
+.logo {
+    font-size: 38px;
+    font-weight: bold;
+    color: #5865F2;
+    margin-bottom: 10px;
+}
+
+/* STATUS */
+.status {
+    color: #00ff99;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* BOTÕES IDIOMA */
 .lang-switch {
     position: fixed;
     top: 15px;
@@ -8,11 +102,11 @@
 }
 
 .lang-switch button {
-    background: #5865F2;
+    background: rgba(88,101,242,0.9);
     border: none;
     color: white;
     padding: 6px 10px;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 12px;
     transition: 0.2s;
@@ -21,4 +115,15 @@
 .lang-switch button:hover {
     background: #4752c4;
     transform: scale(1.05);
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .card {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
 }
