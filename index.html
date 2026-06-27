@@ -1,26 +1,152 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ƬΗΣЦƧBӨƬ</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ƬΗΣЦƧBӨƬ</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0a0d14;
+    color: white;
+    overflow: hidden;
+}
+
+/* FUNDO NEON */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, #5865F240, transparent 40%),
+        radial-gradient(circle at 80% 60%, #00ffd530, transparent 40%);
+    z-index: -1;
+}
+
+/* PARTICULAS SIMPLES */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #5865F2;
+    border-radius: 50%;
+    animation: float 6s infinite;
+    opacity: 0.5;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* CENTRAL */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CARD */
+.card {
+    width: 700px;
+    padding: 40px;
+    border-radius: 18px;
+    background: rgba(20,20,30,0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px #5865F240;
+    text-align: center;
+}
+
+/* LOGO */
+.logo {
+    font-size: 40px;
+    background: linear-gradient(90deg,#5865F2,#00ffd5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* STATUS */
+.status {
+    color: #00ff99;
+    margin: 10px 0;
+}
+
+/* BOTÕES */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: linear-gradient(90deg,#5865F2,#00ffd5);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* LANG */
+.lang {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+}
+.lang button {
+    background: #222;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    margin-left: 5px;
+    border-radius: 6px;
+}
+</style>
 </head>
+
 <body>
 
-<script src="lang.js"></script>
+<!-- LANG -->
+<div class="lang">
+<button onclick="setLang('pt')">PT 🇧🇷</button>
+<button onclick="setLang('en')">EN 🇺🇸</button>
+</div>
 
+<!-- PARTICLES -->
+<script>
+for(let i=0;i<25;i++){
+    let p=document.createElement("div");
+    p.className="particle";
+    p.style.left=Math.random()*100+"vw";
+    p.style.top=Math.random()*100+"vh";
+    p.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(p);
+}
+</script>
+
+<div class="container">
 <div class="card">
 
-    <div class="logo">🤖 ƬΗΣЦƧBӨƬ</div>
-
+    <div class="logo">ƬΗΣЦƧBӨƬ</div>
     <div class="status">🟢 Online • Stable</div>
 
-    <p>
-        Advanced Discord bot for moderation, economy, tickets and automation.
-    </p>
+    <p data-pt="Bot avançado de Discord com economia, moderação e tickets"
+       data-en="Advanced Discord bot with economy, moderation and tickets"></p>
 
-    <a class="btn" href="privacy.html">Privacy Policy</a>
-    <a class="btn" href="terms.html">Terms of Service</a>
+    <a class="btn" href="privacy.html">Privacy</a>
+    <a class="btn" href="terms.html">Terms</a>
 
 </div>
+</div>
+
+<script>
+function setLang(lang){
+    document.querySelectorAll("[data-pt]").forEach(el=>{
+        el.innerText = el.getAttribute("data-"+lang);
+    });
+}
+setLang("pt");
+</script>
+
+</body>
+</html>
