@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade - ƬΗΣЦƧBӨƬ</title>
+    <title>Privacy Policy - ƬΗΣЦƧBӨƬ</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,56 +11,85 @@
 <div class="container">
 <div class="card">
 
-    <h1>🔒 Política de Privacidade</h1>
+    <h1 data-pt="🔒 Política de Privacidade" data-en="🔒 Privacy Policy"></h1>
 
-    <p><strong>Bot:</strong> ƬΗΣЦƧBӨƬ</p>
-    <p><strong>Última atualização:</strong> 26 de Junho de 2026</p>
+    <p data-pt="Última atualização: 26 de Junho de 2026"
+       data-en="Last updated: June 26, 2026"></p>
 
-    <p>
-        Esta Política de Privacidade descreve como o bot <strong>ƬΗΣЦƧBӨƬ</strong> coleta, usa e protege informações dentro do Discord.
-        Ao utilizar o bot, você concorda com os termos descritos abaixo.
-    </p>
+    <p data-pt="Esta Política explica como o ƬΗΣЦƧBӨƬ coleta e utiliza dados dentro do Discord."
+       data-en="This Policy explains how ƬΗΣЦƧBӨƬ collects and uses Discord data."></p>
 
-    <h2>📊 1. Dados coletados</h2>
-    <p>O ƬΗΣЦƧBӨƬ pode coletar apenas dados necessários para funcionamento básico, como:</p>
+    <h2 data-pt="📊 Dados coletados" data-en="📊 Data collected"></h2>
+
     <ul>
-        <li>ID de usuários do Discord</li>
-        <li>ID de servidores (guilds)</li>
-        <li>ID de canais</li>
-        <li>ID de cargos (roles)</li>
-        <li>Configurações internas do servidor</li>
+        <li data-pt="IDs de usuários do Discord" data-en="Discord user IDs"></li>
+        <li data-pt="IDs de servidores (guilds)" data-en="Server (guild) IDs"></li>
+        <li data-pt="IDs de canais" data-en="Channel IDs"></li>
+        <li data-pt="IDs de cargos (roles)" data-en="Role IDs"></li>
+        <li data-pt="Configurações do servidor" data-en="Server configuration data"></li>
     </ul>
 
-    <h2>⚙️ 2. Uso das informações</h2>
-    <p>
-        Os dados coletados são utilizados exclusivamente para fornecer funcionalidades do bot,
-        como comandos de moderação, economia, tickets, logs e sistemas automáticos.
-    </p>
+    <h2 data-pt="⚙️ Uso dos dados" data-en="⚙️ How data is used"></h2>
 
-    <h2>🔐 3. Compartilhamento de dados</h2>
-    <p>
-        O ƬΗΣЦƧBӨƬ <strong>não vende, compartilha ou distribui</strong> qualquer informação de usuários para terceiros.
-    </p>
+    <p data-pt="Os dados são usados apenas para funcionalidades do bot como moderação, economia, tickets e comandos."
+       data-en="Data is only used for bot features like moderation, economy, tickets and commands."></p>
 
-    <h2>💾 4. Armazenamento</h2>
-    <p>
-        Os dados podem ser armazenados temporariamente ou permanentemente apenas para funcionamento das funções do bot.
-    </p>
+    <h2 data-pt="🔐 Compartilhamento" data-en="🔐 Data sharing"></h2>
 
-    <h2>🧹 5. Remoção de dados</h2>
-    <p>
-        Administradores de servidores podem solicitar a remoção de dados entrando em contato com o suporte oficial.
-    </p>
+    <p data-pt="Não vendemos nem compartilhamos dados com terceiros."
+       data-en="We do not sell or share data with third parties."></p>
 
-    <h2>📩 6. Contato</h2>
-    <p>
-        Para dúvidas ou solicitações, entre em contato através do servidor oficial de suporte do ƬΗΣЦƧBӨƬ.
-    </p>
+    <h2 data-pt="🧹 Remoção de dados" data-en="🧹 Data removal"></h2>
 
-    <a class="btn" href="index.html">⬅ Voltar</a>
+    <p data-pt="Você pode solicitar remoção de dados entrando em contato com o suporte."
+       data-en="You can request data removal by contacting support."></p>
+
+    <a class="btn" href="index.html" data-pt="⬅ Voltar" data-en="⬅ Back"></a>
 
 </div>
 </div>
+
+<!-- LANG SCRIPT -->
+<script>
+(function () {
+
+    function applyLang(lang) {
+        localStorage.setItem("lang", lang);
+
+        document.querySelectorAll("[data-pt]").forEach(el => {
+            const value = el.getAttribute("data-" + lang);
+            if (value) el.innerText = value;
+        });
+    }
+
+    function getLang() {
+        return localStorage.getItem("lang") || "pt";
+    }
+
+    function createUI() {
+        const div = document.createElement("div");
+        div.className = "lang-switch";
+
+        div.innerHTML = `
+            <button id="pt">PT 🇧🇷</button>
+            <button id="en">EN 🇺🇸</button>
+        `;
+
+        document.body.appendChild(div);
+
+        document.getElementById("pt").onclick = () => applyLang("pt");
+        document.getElementById("en").onclick = () => applyLang("en");
+    }
+
+    function init() {
+        createUI();
+        applyLang(getLang());
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+
+})();
+</script>
 
 </body>
 </html>
